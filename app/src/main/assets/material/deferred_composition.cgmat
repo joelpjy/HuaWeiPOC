@@ -1,0 +1,183 @@
+{
+    "version": 2,
+    "description": "CGKit material configuration",
+    "properties": {
+        "sampler": [
+            {
+                "filterMin": "SAMPLER_FILTER_BILINEAR",
+                "filterMag": "SAMPLER_FILTER_BILINEAR",
+                "filterMipmap": "SAMPLER_MIPMAP_BILINEAR",
+                "addressModeU": "SAMPLER_ADDRESS_CLAMP",
+                "addressModeV": "SAMPLER_ADDRESS_CLAMP",
+                "addressModeW": "SAMPLER_ADDRESS_CLAMP",
+                "comparisonFunc": "COMPARISON_OPERATION_NEVER",
+                "mipLODBias": 0,
+                "maxAnisotropy": 0,
+                "borderColor": 0,
+                "minLOD": 0,
+                "maxLOD": 0,
+                "anisotropyEnabled": false,
+                "comparisonEnabled": false
+            }
+        ],
+        "texture": [
+            {
+                "uri": "cubemaps/02/cubemap_02_mip.ktx",
+                "name": "envTexture",
+                "samplerIndex": 0
+            }
+        ]
+    },
+    "techniques": [
+        {
+            "name": "Deferred",
+            "type": "opaque",
+            "level": "预留字段，暂不参与解析",
+            "tag": "预留字段，暂不参与解析",
+            "passes": [
+                {
+                    "name": "Composition",
+                    "rasterizationState": {
+                        "cullMode": "CULL_MODE_BACK",
+                        "fillMode": "FILL_MODE_FILL",
+                        "frontFace": "FRONT_FACE_COUNTER_CLOCKWISE",
+                        "scissorEnable": false,
+                        "lineWidth": 1,
+                        "pointSize": 1
+                    },
+                    "depthStencilState": {
+                        "depthFunc": "COMPARISON_OPERATION_LESS_OR_EQUAL",
+                        "depthTestEnable": true,
+                        "depthClampEnable": false,
+                        "depthWriteEnable": false,
+                        "stencilTestEnable": true,
+                        "front": {
+                            "stencilFail": "STENCIL_OPERATION_REPLACE",
+                            "stencilDepthFail": "STENCIL_OPERATION_REPLACE",
+                            "stencilPass": "STENCIL_OPERATION_REPLACE",
+                            "stencilFunc": "COMPARISON_OPERATION_ALWAYS",
+                            "stencilCompareMask": 255,
+                            "stencilReference": 1,
+                            "stencilReadMask": 255,
+                            "stencilWriteMask": 255
+                        },
+                        "back": {
+                            "stencilFail": "STENCIL_OPERATION_REPLACE",
+                            "stencilDepthFail": "STENCIL_OPERATION_REPLACE",
+                            "stencilPass": "STENCIL_OPERATION_REPLACE",
+                            "stencilFunc": "COMPARISON_OPERATION_ALWAYS",
+                            "stencilCompareMask": 255,
+                            "stencilReference": 1,
+                            "stencilReadMask": 255,
+                            "stencilWriteMask": 255
+                        }
+                    },
+                    "colorBlendState": {
+                        "logicOpEnable": false,
+                        "logicOp": "LOGIC_OP_CLEAR",
+                        "blendAttachmentState": [
+                            {
+                                "srcColorBlend": "BLEND_SRC_ALPHA",
+                                "dstColorBlend": "BLEND_ONE_MINUS_SRC_ALPHA",
+                                "colorBlendOp": "BLEND_OPERATION_ADD",
+                                "srcAlphaBlend": "BLEND_ONE",
+                                "dstAlphaBlend": "BLEND_ZERO",
+                                "alphaBlendOp": "BLEND_OPERATION_ADD",
+                                "renderTargetWriteMask": 15,
+                                "blendFactor": 1,
+                                "blendingEnable": false
+                            }
+                        ]
+                    },
+                    "resource": {
+                        "shader": [
+                            {
+                                "uri": "shaders/composition.frag",
+                                "type": "SHADER_STAGE_TYPE_FRAGMENT"
+                            },
+                            {
+                                "uri": "shaders/composition.vert",
+                                "type": "SHADER_STAGE_TYPE_VERTEX"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "DeferredShadow",
+            "type": "opaque",
+            "level": "预留字段，暂不参与解析",
+            "tag": "预留字段，暂不参与解析",
+            "passes": [
+                {
+                    "name": "Composition",
+                    "rasterizationState": {
+                        "cullMode": "CULL_MODE_BACK",
+                        "fillMode": "FILL_MODE_FILL",
+                        "frontFace": "FRONT_FACE_COUNTER_CLOCKWISE",
+                        "scissorEnable": false,
+                        "lineWidth": 1,
+                        "pointSize": 1
+                    },
+                    "depthStencilState": {
+                        "depthFunc": "COMPARISON_OPERATION_LESS_OR_EQUAL",
+                        "depthTestEnable": true,
+                        "depthClampEnable": false,
+                        "depthWriteEnable": false,
+                        "stencilTestEnable": true,
+                        "front": {
+                            "stencilFail": "STENCIL_OPERATION_REPLACE",
+                            "stencilDepthFail": "STENCIL_OPERATION_REPLACE",
+                            "stencilPass": "STENCIL_OPERATION_REPLACE",
+                            "stencilFunc": "COMPARISON_OPERATION_ALWAYS",
+                            "stencilCompareMask": 255,
+                            "stencilReference": 1,
+                            "stencilReadMask": 255,
+                            "stencilWriteMask": 255
+                        },
+                        "back": {
+                            "stencilFail": "STENCIL_OPERATION_REPLACE",
+                            "stencilDepthFail": "STENCIL_OPERATION_REPLACE",
+                            "stencilPass": "STENCIL_OPERATION_REPLACE",
+                            "stencilFunc": "COMPARISON_OPERATION_ALWAYS",
+                            "stencilCompareMask": 255,
+                            "stencilReference": 1,
+                            "stencilReadMask": 255,
+                            "stencilWriteMask": 255
+                        }
+                    },
+                    "colorBlendState": {
+                        "logicOpEnable": false,
+                        "logicOp": "LOGIC_OP_CLEAR",
+                        "blendAttachmentState": [
+                            {
+                                "srcColorBlend": "BLEND_SRC_ALPHA",
+                                "dstColorBlend": "BLEND_ONE_MINUS_SRC_ALPHA",
+                                "colorBlendOp": "BLEND_OPERATION_ADD",
+                                "srcAlphaBlend": "BLEND_ONE",
+                                "dstAlphaBlend": "BLEND_ZERO",
+                                "alphaBlendOp": "BLEND_OPERATION_ADD",
+                                "renderTargetWriteMask": 15,
+                                "blendFactor": 1,
+                                "blendingEnable": false
+                            }
+                        ]
+                    },
+                    "resource": {
+                        "shader": [
+                            {
+                                "uri": "shaders/composition_shadow.frag",
+                                "type": "SHADER_STAGE_TYPE_FRAGMENT"
+                            },
+                            {
+                                "uri": "shaders/composition.vert",
+                                "type": "SHADER_STAGE_TYPE_VERTEX"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

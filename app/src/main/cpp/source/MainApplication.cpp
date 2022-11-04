@@ -71,13 +71,14 @@ void MainApplication::InitScene()
     }
 
     // Set the default model.
-   /* if(!SetupDefaultModel()) {
-        return;
-    }*/
-
-    if (!SetupFaceModel()) {
+    if(!SetupDefaultModel()) {
         return;
     }
+
+    //TODO - Get the face avatar working
+    /*if (!SetupFaceModel()) {
+        return;
+    }*/
 
     // Set the skybox.
     m_skyObject = CreateSkybox();
